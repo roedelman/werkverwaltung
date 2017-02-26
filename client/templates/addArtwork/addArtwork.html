@@ -8,7 +8,7 @@
 			<div class="requiredFields">
 			<div class="form-group">
 				<label>Titel</label>
-				<input type="text" class="form-control" id="title" name="title" placeholder="Title">
+				<input type="text" class="form-control tag-field" id="title" name="title" placeholder="Title">
 			</div>
 			<div class="form-group">
 				<label>Bild hinzufügen</label>
@@ -16,7 +16,7 @@
 			</div>
 			<div class="form-group half-page-form">
 				<label>Kategorie</label>
-				<select id="addartworktype" name="addartworktype type" class="form-control">
+				<select id="addartworktype" name="addartworktype type" class="form-control tag-field">
 					<option value="default" class="" selected>Kategorie wählen...</option>
 					<optgroup label="Kategorien:">
 						{{#each artworktypes}}
@@ -36,7 +36,7 @@
 					<option value="default" class="" selected>Maße wählen...</option>
 					<optgroup label="Maße:">
 						{{#each artworksizes}}
-						<option value="{{name}}">{{name}}</option>
+						<option class= "tag-field" value="{{name}}">{{name}}</option>
 						{{/each}}
 					</optgroup>
 					<optgroup label="Funktionen:">
@@ -50,7 +50,7 @@
 			
 
 			<label>Keywords</label>
-			<input type="text" class="form-control" id="description" name="description" placeholder="Stichwörter">
+			<input type="text" data-role="tagsinput" class="form-control" id="description" name="description" placeholder="Stichwörter">
 			
 			</div>
 			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -67,12 +67,12 @@
 							<div class="form-group">
 								<div class="half-page-form">
 									<label>Vorname</label>
-									<input type="text" class="form-control" id="buyer_firstname" name="buyer_firstname" placeholder="Vorname">
+									<input type="text" class="form-control tag-field" id="buyer_firstname" name="buyer_firstname" placeholder="Vorname">
 								</div>
 								<div class="half-page-form">
 
 									<label>Name</label>
-									<input type="text" class="form-control" id="buyer_secondname" name="buyer_secondname" placeholder="Nachname">
+									<input type="text" class="form-control tag-field" id="buyer_secondname" name="buyer_secondname" placeholder="Nachname">
 								</div>
 							</div>
 							<div class="form-group">
@@ -94,7 +94,7 @@
 								<div class="half-page-form">
 
 									<label>Stadt</label>
-									<input type="text" class="form-control" id="city" name="city" placeholder="Stadt">
+									<input type="text" class="form-control tag-field" id="city" name="city" placeholder="Stadt">
 								</div>
 							</div>
 						</div>

@@ -1,60 +1,68 @@
 <template name="queryArtwork">
-	<div class="container">
-		<div id="heading" >
-		{{> searchBox }}
-		
-		</div>
-<div class="container .resultcontainer" >
-		{{> searchResult}}
-		</div>
-	</div>
+    <div class="container">
+        <div id="heading" >
+            {{> searchBox }}
+
+        </div>
+        <div class="container .resultcontainer" >
+            {{> searchResult}}
+        </div>
+    </div>
 </template>
 
 
 <template name="searchBox">
-	<input type="text" id="search-box" placeholder="search artworks here" />
+    <input type="text" id="search-box" placeholder="search artworks here" />
 </template>
 
 <template name="searchResult">
-	<div id='search-result'>
-		<div id="search-meta">
-			{{#if isLoading}}
-			searching ...
-			{{/if}}
-		</div>
+    <div id='search-result'>
+        <div id="search-meta">
+            <!-- {{#if isLoading}}
+            searching ...
+            {{else}}
+            
+            {{/if}} -->
+        </div>
 
-		{{#each artworks}}
+        {{#each artworks}}
 
-		<div class="row artwork-row clickable-row" href="{{pathFor 'artwork'}}">
+        <div class="row artwork-row clickable-row" href="{{pathFor 'artwork'}}">
 
-			<div class="container">
-			<div class="col-md-4">
-				<img class="titleImage" src="{{titleImage}}">
-			</div>
-			<div class="col-md-8">
-				
-				<h4>
-				{{#if isEmpty title}}
-					<i>kein Titel vergeben</i>
-				{{else}}
-					{{title}}
-				{{/if}}
-				</h4>
-				<p>Maße: {{size}}</p>
-				<p>Kategorie: {{type}}</p>
-				<p>{{description}}</p>
+            <div class="container">
+                <div class="col-md-4">
+                    <img class="titleImage" src="{{titleImage}}">
+                </div>
+                <div class="col-md-8">
+
+                    <h4>
+                        {{#if isEmpty title}}
+                        <i>kein Titel vergeben</i>
+                        {{else}}
+                        {{title}}
+                        {{/if}}
+                    </h4>
+                    <p>Maße: {{size}}</p>
+                    <p>Kategorie: {{type}}</p>
+                    {{#each description}}
+                        <span class="query-label label label-info">
+                            {{this}}
+                        </span>
+
+                    {{/each}}
+                    <p></p>
 
 
-			</div>
-		</div>
-		</div>
-	<!-- <div class="artwork-addRemove">
-		<a class="btn btn-primary btn-add-artWorkImage">Bild Entfernen</a>
-		<a href="" data-toggle="modal" data-target="#addArtworkImageModal" id="openArtwork-add-btn" class="btn btn-primary btn-add-artWorkImage">Bild Hinzufügen</a>
-	</div> -->
-	<hr> 
-	{{else}}
-	<p> There are no Artworks </p>
-	{{/each}}
+                </div>
+            </div>
+        </div>
+    <!-- <div class="artwork-addRemove">
+        <a class="btn btn-primary btn-add-artWorkImage">Bild Entfernen</a>
+        <a href="" data-toggle="modal" data-target="#addArtworkImageModal" id="openArtwork-add-btn" class="btn btn-primary btn-add-artWorkImage">Bild Hinzufügen</a>
+    </div> -->
+    <hr> 
+    {{else}}
+    <p> There are no Artworks </p>
+    {{/each}}
 </div>
 </template>

@@ -5,6 +5,7 @@ Template.registerHelper('truncateText', function(text, length){
 });
 
 Template.registerHelper("isEmpty", function (object) {
-    return jQuery.isEmpty(object);
+    if(object == null) return true;
+    else return false;
 });
 

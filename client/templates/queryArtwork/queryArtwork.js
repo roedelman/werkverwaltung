@@ -9,9 +9,9 @@ ArtworkSearch = new SearchSource('artworks', fields, options);
 Template.searchResult.helpers({
   artworks: function() {
     return ArtworkSearch.getData({
-      transform: function(matchText, regExp) {
-        return matchText.replace(regExp, '<b>$&</b>')
-      },
+      // transform: function(matchText, regExp) {
+      //   return matchText.replace(regExp, '<b>$&</b>')
+      // },
       sort: {isoScore: -1}
     });
   },
