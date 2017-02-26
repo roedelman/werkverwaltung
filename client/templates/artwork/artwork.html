@@ -1,0 +1,62 @@
+<template name="artwork">
+	{{#each artworks}}
+	<div class="container">
+		<div class="col-md-12">
+
+			{{> carousel}}
+		</div>
+	</div>
+	{{> dropzone}}
+		<!-- <div class="artwork-addRemove">
+		<a class="btn btn-primary btn-add-artWorkImage">Bild Entfernen</a>
+		<a href="" data-toggle="modal" data-target="#addArtworkImageModal" id="openArtwork-add-btn" class="btn btn-primary btn-add-artWorkImage">Bild Hinzufügen</a>
+	</div> -->
+	<hr>
+	<div class="col-md-12">
+		<h4>{{title}}</h4>
+		<p>Maße: {{size}}</p>
+		<p>Kategorie: {{type}}</p>
+		<p>{{description}}</p>
+
+{{>kaeufer}}
+	</div>
+	
+
+
+	
+	<div class="modal fade" id="addArtworkImageModal" tabindex="-1" role="dialog" aria-labelledby="addArtworkImageModalLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Neues Bild hinzufügen</h4>
+				</div>
+				<div class="modal-body">
+					<form class="addArtworkImage" enctype="multipart/form-data">
+
+						<div class="form-group">
+							<label>Bild hinzufügen</label>
+							<input type="file" name="artworkImage" id="artworkImage">
+						</div>
+
+						<button type="submit" class="btn btn-primary">Hinzufügen</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	{{/each}}
+</template>
+
+<template name="carousel">  
+	<div class="carousel" id="carousel">
+		{{#each images}}
+		<div><img src="{{image}}" width="200px" /></div>
+		{{/each}}
+	</div>
+</template>
+
+
+
