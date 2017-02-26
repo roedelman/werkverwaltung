@@ -4,6 +4,17 @@ textarea {
         text-align: justify;
         white-space: normal;
     }
+
+.eurosymbole{
+  position:relative;
+  margin-right:-20px
+}
+input[type='number']{
+  padding-left:20px;
+  text-align:left;
+}
+
+
 .query-label{
   margin-left: 5px;
 }

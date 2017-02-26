@@ -3,7 +3,7 @@ Template.addArtwork.rendered = function () {
 	function stopRKey(evt) { 
 		var evt = (evt) ? evt : ((event) ? event : null); 
 		var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
-		if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
+		if ((evt.keyCode == 13) && ((node.type=="text") || (node.type=="number")))  {return false;} 
 	} 
 
 	document.onkeypress = stopRKey;
@@ -33,6 +33,24 @@ Template.addArtwork.helpers({
 });
 
 Template.addArtwork.events({
+
+	"change #nettopreis_einzeln": function(event){
+		var steuersatz = $('#mwst').val();
+		var netto = $(event.target).val();
+		var mult = 1+Number(steuersatz);
+		var brutto = Number(netto) *  Number(mult);
+		$('#bruttopreis_einzeln').val(brutto);
+	},
+
+	"change #mwst": function(event){
+		var steuersatz = $(event.target).val();
+		var netto = $('#nettopreis_einzeln').val();
+		var mult = 1+Number(steuersatz);
+		var brutto = Number(netto) *  Number(mult);
+		$('#bruttopreis_einzeln').val(brutto);
+	},
+
+
 	"change .tag-field": function(event){
 		$('#description').tagsinput('add', $(event.target).val());
 

@@ -10,3 +10,4 @@ meteor add accounts-ui accounts-password
 meteor add meteorhacks:search-source
 meteor add check
 meteor add ejson
+meteor add ajduke:bootstrap-tagsinput
