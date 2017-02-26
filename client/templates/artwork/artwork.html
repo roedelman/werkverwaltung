@@ -1,13 +1,17 @@
 <template name="artwork">
 	{{#each artworks}}
 	<div class="container">
-		<div class="col-md-12">
-
-			{{> carousel}}
+		{{#each images}}
+		<div class="col-xs-6 col-md-3">
+			<a href="#imagelarge" data-toggle="modal" data-target="#imagelarge" class="thumbnail  img-responsive">
+				<img src="{{image}}" class="thumbnail-image  img-responsive" />
+			</a>
 		</div>
+		{{/each}}
+
 	</div>
 	{{> dropzone}}
-		<!-- <div class="artwork-addRemove">
+	<!-- 	<div class="artwork-addRemove">
 		<a class="btn btn-primary btn-add-artWorkImage">Bild Entfernen</a>
 		<a href="" data-toggle="modal" data-target="#addArtworkImageModal" id="openArtwork-add-btn" class="btn btn-primary btn-add-artWorkImage">Bild Hinzufügen</a>
 	</div> -->
@@ -16,18 +20,29 @@
 		<h4>{{title}}</h4>
 		<p>Maße: {{size}}</p>
 		<p>Kategorie: {{type}}</p>
-	       {{#each description}}
-                        <span class="query-label label label-info">
-                            {{this}}
-                        </span>
+		{{#each description}}
+		<span class="query-label label label-info">
+			{{this}}
+		</span>
 
-                    {{/each}}
-                    <p></p>
+		{{/each}}
+		<p></p>
 
-{{>kaeufer}}
+		{{>kaeufer}}
 	</div>
 	
 
+
+	<div class="modal fade " id="imagelarge" tabindex="-1" role="dialog" aria-labelledby="addArtworkImageModalLabel">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+
+				<div class="modal-body">
+					<img src="" id="imagelarge_src"/>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 	<div class="modal fade" id="addArtworkImageModal" tabindex="-1" role="dialog" aria-labelledby="addArtworkImageModalLabel">
@@ -41,7 +56,7 @@
 
 						<div class="form-group">
 							<label>Bild hinzufügen</label>
-							<input type="file" name="artworkImage" id="artworkImage">
+							<input type="file" name="artworkImage" id="artworkImage" multiple>
 						</div>
 
 						<button type="submit" class="btn btn-primary">Hinzufügen</button>

@@ -10,6 +10,11 @@
 
   Template.artwork.rendered = function () {
   		Session.set('artworkId', this._id);
+        $('.thumbnail-image').click(function(){
+     var src = $(this).attr('src'); 
+     $('#imagelarge_src').attr('src', src);
+
+  });
  
   };
 
@@ -18,25 +23,27 @@
   		Session.set('artworkId', this._id);
   	},
   	"submit .addArtworkImage": function (event) {
-  		var file = $('#artworkImage').get(0).files[0];
-  		var artworkId = Session.get('artworkId');
-  		if(file){
-  			fsFile = new FS.File(file);
+      var file = $('#artworkImage').get(0);
+  		FS.Utility.eachFile(event, function(file){
+      var newFile = new FS.File(file);
+        ArtworkImages.insert(newFile, function(err, result){
+        if(err){
+      toastr.error('Fehler');
+        }else{
+            var artworkImage = '/cfs/files/ArtworkImages/'+result._id;
+          Session.set('imageId', result._id);
+           var artworkId = Router.current().params.id
 
-  			ArtworkImages.insert(fsFile, function(err, result){
-  				if(!err){
-  					var artworkImage = '/cfs/files/ArtworkImages/'+result._id;
-
-  					Artworks.update({
-  						_id: artworkId
-  					},
-  					{$push:{images: {image:artworkImage}}}
-  					)
-  				}
-  			});
-  		}
-  		toastr.success('Kunstwerk hinzugefügt');
-		//Modal.hide('addArtworkImageModal');
+          Artworks.update({
+              _id: artworkId
+            },
+            {$push:{images: {image:artworkImage}}}
+            )
+      toastr.success('Kunstwerk hinzugefügt');
+        //  Modal.show('addInfo');
+        }
+      });
+    });
 
 		return false;
 	},
