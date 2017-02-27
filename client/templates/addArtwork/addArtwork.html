@@ -30,6 +30,7 @@
 					</select>
 				</div>
 
+
 				<div class="form-group half-page-form">
 					<label>Abmessungen</label>
 					<select id="addArtworkSize" name="addArtworkSize type" class="form-control">
@@ -47,231 +48,64 @@
 				</div>
 
 
+				<div class="form-group half-page-form">
+					<label>Material</label>
+					<select id="artworkMaterial" name="artworkMaterial type" class="form-control tag-field">
+						<option value="default" class="" selected>Material wählen...</option>
+						<optgroup label="Materialien:">
+							{{#each artworkmaterial}}
+							<option value="{{name}}">{{name}}</option>
+							{{/each}}
+						</optgroup>
+						<optgroup label="Funktionen:">
+							<option value="addMaterial" class="add-type">Material hinzufügen</option>
+							<option value="removeMaterial" class="remove-type">Material entfernen</option>
+						</optgroup>
+					</select>
+				</div>
+
+				<div class="form-group half-page-form">
+					<label>Ort des Werks</label>
+					<select id="artworkLocation" name="artworkLocation type" class="form-control tag-field">
+						<option value="default" class="" selected>Ort wählen...</option>
+						<optgroup label="Ort des Werks:">
+							{{#each artworklocations}}
+							<option value="{{name}}">{{location}}</option>
+							{{/each}}
+						</optgroup>
+						<optgroup label="Funktionen:">
+							<option value="addMaterial" class="add-type">Ort hinzufügen</option>
+							<option value="removeMaterial" class="remove-type">Ort entfernen</option>
+						</optgroup>
+					</select>
+				</div>
+
 
 
 				<label>Keywords</label>
-				<input type="text" data-role="tagsinput" class="form-control" id="description" name="description" placeholder="Stichwörter">
+				<input type="text" data-role="tagsinput" class="form-control tag-input-field" id="description" name="description" placeholder="Stichwörter">
 
 			</div>
 			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
 				<!-- Beschreibung -->
-				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingOne">
-						<h4 class="panel-title">
-							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								Beschreibung
-							</a>
-						</h4>
-					</div>
-					<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-						<div class="panel-body">
-							<textarea type="text" class="form-control" id="description_long" name="description_long" placeholder="Beschreibung" rows="10"></textarea>
-						</div>
-					</div>
-				</div>
+				{{> addArtworkDescription}}
 				<!-- Preisliste -->
-				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingTwo">
-						<h4 class="panel-title">
-							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
-								Preise
-							</a>
-						</h4>
-					</div>
-					<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-						<div class="panel-body">
-							<div class="form-group col-md-12">
-								<div class="col-md-4">
-									<div class="input-group">
-									<span class="input-group-addon">€</span>
-										<input type="text" step="0.01" class="form-control" id="nettopreis_einzeln" name="nettopreis_einzeln" placeholder="Nettopreis">
-									</div>
-								</div>
-								<div class="col-md-4">
-									
-
-									<select id="mwst" name="mwst type" class="form-control">
-										<option value=".07">7%</option>
-										<option value=".19">19%</option>
-										<option value="0">0%</option>
-
-									</select>
-								</div>
-								<div class="col-md-4">
-									<div class="input-group">
-									<span class="input-group-addon">€</span>
-										<input type="text" class="form-control" id="bruttopreis_einzeln" name="bruttopreis_einzeln" placeholder="Bruttopreis">
-									</div>
-									
-								</div>
-							</div>
-							
-						</div>
-					</div>
-				</div>
+				{{> addArtworkPrice}}
 				<!-- Käufer -->
-				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingThree">
-						<h4 class="panel-title">
-							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-								Käufer
-							</a>
-						</h4>
-					</div>
-					<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
-						<div class="panel-body">
-							<div class="form-group">
-								<div class="half-page-form">
-									<label>Vorname</label>
-									<input type="text" class="form-control tag-field" id="buyer_firstname" name="buyer_firstname" placeholder="Vorname">
-								</div>
-								<div class="half-page-form">
-
-									<label>Name</label>
-									<input type="text" class="form-control tag-field" id="buyer_secondname" name="buyer_secondname" placeholder="Nachname">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="half-page-form">
-									<label>Straße</label>
-									<input type="text" class="form-control" id="street" name="street" placeholder="Straße">
-								</div>
-								<div class="half-page-form">
-
-									<label>Hausnummer</label>
-									<input type="text" class="form-control" id="street_number" name="street_number" placeholder="Hausnummer">
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="half-page-form">
-									<label>PLZ</label>
-									<input type="text" class="form-control" id="postalcode" name="postalcode" placeholder="Postleitzahl">
-								</div>
-								<div class="half-page-form">
-
-									<label>Stadt</label>
-									<input type="text" class="form-control tag-field" id="city" name="city" placeholder="Stadt">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
+				{{> addArtworkBuyer}}
 				
 			</div>
 			<button type="submit" class="btn btn-primary">Hinzufügen</button>
 		</form>
 
 	</div>
-	<!-- Kategorie hinzufügen-->
-	<div class="modal fade" id="addArtworkTypeModal" tabindex="-1" role="dialog" aria-labelledby="addArtworkTypeModalLabel">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Kategorie hinzufügen</h4>
-				</div>
-				<div class="modal-body">
-					<form class="addArtworkType" enctype="multipart/form-data">
-						<div class="form-group">
-							<label>Name der Kategorie</label>
-							<input type="text" class="form-control" id="artworktype" name="artworktype" placeholder="Kategorie">
-						</div>
+	
+		{{> addArtworkType}}
+	
+		{{> addArtworkSize}}
 
-						<button type="submit" class="btn btn-primary">Hinzufügen</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--ENDE  Kategorie hinzufügen-->
-	<!--ANFANG  Kategorie entfernen-->
-	<div class="modal fade" id="removeArtworkTypeModal" tabindex="-1" role="dialog" aria-labelledby="removeArtworkTypeModalLabel">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Kategorie hinzufügen</h4>
-				</div>
-				<div class="modal-body">
-					<form class="removeArtworkType" enctype="multipart/form-data">
-						<div class="form-group">
-							<label>Type</label>
-							<select id="removeartworktype" name="removeartworktype removetype" class="form-control">
-								<option value="default" class="" selected>Kategorie entfernen...</option>
-								<optgroup label="Kategorien:">
-									{{#each artworktypes}}
-									<option value="{{name}}">{{name}}</option>
-									{{/each}}
-								</optgroup>
-								<optgroup label="Funktionen:">
-
-
-								</optgroup>
-							</select>
-						</div>
-
-						<button type="submit" class="btn btn-primary">Entfernen</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!--ENDE  Kategorie entfernen-->
-	<!-- Maße hinzufügen-->
-	<div class="modal fade" id="addArtworkSizeModal" tabindex="-1" role="dialog" aria-labelledby="addArtworkSizeModalLabel">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Maße hinzufügen</h4>
-				</div>
-				<div class="modal-body">
-					<form class="addArtworkSize" enctype="multipart/form-data">
-						<div class="form-group">
-							<label>Maße in cm</label>
-							<input type="text" class="form-control" id="artworksize" name="artworksize" placeholder="Kategorie">
-						</div>
-
-						<button type="submit" class="btn btn-primary">Hinzufügen</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--ENDE  Maße  hinzufügen-->
-	<!--ANFANG  Maße entfernen-->
-	<div class="modal fade" id="removeArtworkSizeModal" tabindex="-1" role="dialog" aria-labelledby="removeArtworkSizeModalLabel">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Maße hinzufügen</h4>
-				</div>
-				<div class="modal-body">
-					<form class="removeArtworkSize" enctype="multipart/form-data">
-						<div class="form-group">
-							<label>Size</label>
-							<select id="removeArtworkSize" name="removeArtworkSize removesize" class="form-control">
-								<option value="default" class="" selected>Maße entfernen...</option>
-								<optgroup label="Maßen:">
-									{{#each artworksizes}}
-									<option value="{{name}}">{{name}}</option>
-									{{/each}}
-								</optgroup>
-								<optgroup label="Funktionen:">
-
-
-								</optgroup>
-							</select>
-						</div>
-
-						<button type="submit" class="btn btn-primary">Entfernen</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!--ENDE  Maße entfernen-->
+		{{> addArtworkMaterial}}
 
 </template>
 

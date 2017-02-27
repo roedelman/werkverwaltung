@@ -29,7 +29,13 @@ Template.addArtwork.helpers({
 	},
 	artworksizes: function () {
 		return ArtworkSizes.find();
-	}
+	},
+	artworkmaterial: function(){
+		return ArtworkMaterial.find();
+	},
+	artworklocations: function(){
+		return ArtworkLocations.find();
+	} 
 });
 
 Template.addArtwork.events({
@@ -77,6 +83,15 @@ Template.addArtwork.events({
 
 		}
 	},
+	"change #addartworkmaterial": function(event){
+		var value = event.target.value;
+		if(value == "addMaterial"){
+			$('#addArtworkMaterialModal').modal('show');
+		}else if(value == "removeMaterial"){
+			$('#removeArtworkMaterialModal').modal('show');
+
+		}
+	},
 	"submit .addArtworkSize":function(event){
 		var size = event.target.artworksize.value;
 		ArtworkSizes.insert({
@@ -84,6 +99,17 @@ Template.addArtwork.events({
 		});
 		toastr.success('Maße hinzugefügt');
 		$('#addArtworkSizeModal').modal('hide');
+		
+		return false;
+
+	},
+	"submit .addArtworkMaterial":function(event){
+		var material = event.target.artworkmaterial.value;
+		ArtworkMaterial.insert({
+			name: material
+		});
+		toastr.success('Material hinzugefügt');
+		$('#addArtworkMaterialModal').modal('hide');
 		
 		return false;
 
@@ -129,6 +155,7 @@ Template.addArtwork.events({
 		var tags = event.target.description.value.split(',');
 		var type = event.target.addartworktype.value;
 		var size = event.target.addArtworkSize.value;
+		var material = event.target.artworkMaterial.value;
 
 		//Käufer
 		var firstname = event.target.buyer_firstname.value;
@@ -138,64 +165,61 @@ Template.addArtwork.events({
 		var postalcode = event.target.postalcode.value;
 		var city = event.target.city.value;
 
-		
-	
+		//Preise
+		var nettopreis_einzeln = event.target.nettopreis_einzeln.value;
+		var mwst = event.target.mwst.value;
+
+
 		//description.forEach(function(doc) { for (var i in doc) { console.log(i, doc[i]) }});
 		//langtext
 		var description_long = event.target.description_long.value;
 
 		var file = $('#artworkImage').get(0).files[0];
 
-		if(true){
-			fsFile = new FS.File(file);
+		fsFile = new FS.File(file);
 
-			ArtworkImages.insert(fsFile, function(err, result){
-				if(!err){
-					var artworkImage = '/cfs/files/ArtworkImages/'+result._id;
+		ArtworkImages.insert(fsFile, function(err, result){
+			if(!err){
+				var artworkImage = '/cfs/files/ArtworkImages/'+result._id;
 
-					Artworks.insert({
-						title: title,
-						description: tags,
-						titleImage:artworkImage,
-						size:size,
-						images:[
-						{image: artworkImage},
-						],
-						type: type,
-						buyer: {
-							firstname:firstname,
-							secondname:secondname,
-							address:{
-								street: street,
-								street_number: street_number,
-								postalcode:postalcode,
-								city:city
-							}
-						},
-						description_long: description_long,
-						createdAt: new Date()
-					}, function(err, result){
+				Artworks.insert({
+					title: title,
+					description: tags,
+					titleImage:artworkImage,
+					size:size,
+					material:material,
+					price:{
+						netto:nettopreis_einzeln,
+						mwst:mwst
+					},
+					images:[
+					{image: artworkImage},
+					],
+					type: type,
+					buyer: {
+						firstname:firstname,
+						secondname:secondname,
+						address:{
+							street: street,
+							street_number: street_number,
+							postalcode:postalcode,
+							city:city
+						}
+					},
+					description_long: description_long,
+					createdAt: new Date()
+				}, function(err, result){
+					if(err){
+								toastr.error(err.Reason);
+
+					}
 					
-					});
-				}
+				});
+			}
 
-			});
-			
-		}else{
-			var artworkImage = '/img/noimage.png';
-			Artworks.insert({
-				title: title,
-				description: description,
-				titleImage:artworkImage,
-				size: size,
-				images:[
-				{image: artworkImage},
-				],
-				type: type,
+		});
 
-				createdAt: new Date()
-			});
-		}
+		
 
 
 		//clear form

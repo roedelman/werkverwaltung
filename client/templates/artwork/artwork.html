@@ -4,7 +4,7 @@
 		{{#each images}}
 		<div class="col-xs-6 col-md-3">
 			<a href="#imagelarge" data-toggle="modal" data-target="#imagelarge" class="thumbnail  img-responsive">
-				<img src="{{image}}" class="thumbnail-image  img-responsive" />
+				<img src="{{image}}" class="thumbnail-image  img-responsive uploading='../img/imgres.png'" />
 			</a>
 		</div>
 		{{/each}}
@@ -27,8 +27,11 @@
 
 		{{/each}}
 		<p></p>
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		{{> prices}}
+		{{> kaeufer}}
 
-		{{>kaeufer}}
+		</div>
 	</div>
 	
 

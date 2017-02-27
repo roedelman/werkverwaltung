@@ -14,8 +14,14 @@ Template.dropzone.events({
   						_id: artworkId
   					},
   					{$push:{images: {image:artworkImage}}}
-  					)
-  		toastr.success('Kunstwerk hinzugefügt');
+  					,function(err, result){
+  						if(err){
+  							  		toastr.error('Fehler');
+  						}else{
+  							toastr.success('Kunstwerk hinzugefügt');
+  						}
+  					})
+  		
 				//	Modal.show('addInfo');
 				}
 			});
