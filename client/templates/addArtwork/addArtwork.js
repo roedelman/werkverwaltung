@@ -40,6 +40,7 @@ Template.addArtwork.helpers({
 
 Template.addArtwork.events({
 
+    
 	"change #nettopreis_einzeln": function(event){
 		var steuersatz = $('#mwst').val();
 		var netto = $(event.target).val();
@@ -57,7 +58,11 @@ Template.addArtwork.events({
 	},
 
 
-	"change .tag-field": function(event){
+        "change .tag-field": function(event){
+	    var controlSelectionFields = ['addType', 'addMaterial', 'addLocation', 'addSize', 'removeType', 'removeMaterial', 'removeLocation', 'removeSize'];
+
+
+	    if(controlSelectionFields.indexOf(event.target.value) == -1)
 		$('#description').tagsinput('add', $(event.target).val());
 
 	},
@@ -83,7 +88,19 @@ Template.addArtwork.events({
 
 		}
 	},
-	"change #addartworkmaterial": function(event){
+
+	"change #artworkLocation": function(event){
+		var value = event.target.value;
+		if(value == "addLocation"){
+			$('#addArtworkLocationModal').modal('show');
+		}else if(value == "removeLocation"){
+			$('#removeArtworkLocationModal').modal('show');
+
+		}
+	},
+
+    
+	"change #artworkMaterial": function(event){
 		var value = event.target.value;
 		if(value == "addMaterial"){
 			$('#addArtworkMaterialModal').modal('show');
@@ -114,6 +131,21 @@ Template.addArtwork.events({
 		return false;
 
 	},
+
+	"submit .addArtworkLocation":function(event){
+		var  location = event.target.artworklocation.value;
+		ArtworkLocations.insert({
+			name: location
+		});
+		toastr.success('Standort hinzugefügt');
+		$('#addArtworkLocationModal').modal('hide');
+		
+		return false;
+
+	},
+
+
+    
 	"submit .removeArtworkSize":function(event){
 		var type = event.target.removeartworksize.value;
 		ArtworkSizes.remove({
@@ -213,23 +245,25 @@ Template.addArtwork.events({
 								toastr.error(err.Reason);
 
 					}
+				    else
+				    {
+							//clear form
+
+					
+					toastr.success('Kunstwerk hinzugefügt');
+					Router.go('/artwork/'+result);
+					
+					return false;
+
+				    }
 					
 				});
 			}
 
 		});
-
+	    return false;
 		
 
 
-		//clear form
-
-		event.target.title.value = '';
-		event.target.description.value = '';
-
-		toastr.success('Kunstwerk hinzugefügt');
-		//Router.go('/');
-
-		return false;
 	}
 });

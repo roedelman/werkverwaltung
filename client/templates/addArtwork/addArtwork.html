@@ -70,12 +70,12 @@
 						<option value="default" class="" selected>Ort wählen...</option>
 						<optgroup label="Ort des Werks:">
 							{{#each artworklocations}}
-							<option value="{{name}}">{{location}}</option>
+							<option value="{{name}}">{{name}}</option>
 							{{/each}}
 						</optgroup>
 						<optgroup label="Funktionen:">
-							<option value="addMaterial" class="add-type">Ort hinzufügen</option>
-							<option value="removeMaterial" class="remove-type">Ort entfernen</option>
+							<option value="addLocation" class="add-type">Ort hinzufügen</option>
+							<option value="removeLocation" class="remove-type">Ort entfernen</option>
 						</optgroup>
 					</select>
 				</div>
@@ -101,11 +101,13 @@
 
 	</div>
 	
-		{{> addArtworkType}}
+	{{> addArtworkType}}
 	
-		{{> addArtworkSize}}
+	{{> addArtworkSize}}
+	
+	{{> addArtworkMaterial}}
 
-		{{> addArtworkMaterial}}
+	{{> addArtworkLocation}}
 
 </template>
 

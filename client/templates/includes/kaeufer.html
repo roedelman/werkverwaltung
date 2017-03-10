@@ -1,73 +1,58 @@
 <template name="kaeufer">
-				{{#with buyer}}
+  {{#with buyer}}
 
-				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingOne">
-						<h4 class="panel-title">
-							<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								Käufer
-							</a>
-						</h4>
-					</div>
-					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-						<div class="panel-body">
-							<div class="form-group">
-								<div class="half-page-form">
-									<label>Vorname</label>
-									<textarea type="text" class="form-control" id="buyer_firstname" name="buyer_firstname">{{firstname}}</textarea>
-								</div>
-								<div class="half-page-form">
-
-									<label>Name</label>
-									<textarea type="text" class="form-control" id="buyer_secondname" name="buyer_secondname">{{secondname}}</textarea>
-								</div>
-							</div>
-							{{#with address}}
-							<div class="form-group">
-								<div class="half-page-form">
-									<label>Straße</label>
-									<textarea type="text" class="form-control" id="street" name="street" placeholder="Straße">{{street}}
-									</textarea>
-								</div>
-								<div class="half-page-form">
-
-									<label>Hausnummer</label>
-									<textarea type="text" class="form-control" id="street_number" name="street_number">{{street_number}}
-									</textarea>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="half-page-form">
-									<label>PLZ</label>
-									<textarea type="text" class="form-control" id="postalcode" name="postalcode">{{postalcode}}
-									</textarea>
-								</div>
-								<div class="half-page-form">
-
-									<label>Stadt</label>
-									<textarea type="text" class="form-control" id="city" name="city" placeholder="Stadt">{{city}}
-									</textarea>
-								</div>
-							</div>
-							{{/with}}
-						</div>
-					</div>
-				</div>
-				{{/with}}
-				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingTwo">
-						<h4 class="panel-title">
-							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-								Beschreibung
-							</a>
-						</h4>
-					</div>
-					<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-						<div class="panel-body">
-							<textarea type="text" class="form-control" id="description_long" name="description_long" placeholder="Beschreibung" rows="10">{{description_long}}</textarea>
-						</div>
-					</div>
-				</div>
-				
-			
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+	<a role="button" class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+	  Käufer
+	</a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+	<div class="form-group">
+	  <div class="half-page-form">
+	    <label>Vorname</label>
+	    <textarea type="text" class="form-control" id="buyer_firstname" name="buyer_firstname">{{firstname}}</textarea>
+	  </div>
+	  <div class="half-page-form">
+	    
+	    <label>Name</label>
+	    <textarea type="text" class="form-control" id="buyer_secondname" name="buyer_secondname">{{secondname}}</textarea>
+	  </div>
+	</div>
+	{{#with address}}
+	<div class="form-group">
+	  <div class="half-page-form">
+	    <label>Straße</label>
+	    <textarea type="text" class="form-control" id="street" name="street" placeholder="Straße">{{street}}
+	    </textarea>
+	  </div>
+	  <div class="half-page-form">
+	    <label>Hausnummer</label>
+	    <textarea type="text" class="form-control" id="street_number" name="street_number">{{street_number}}
+	    </textarea>
+	  </div>
+	</div>
+	<div class="form-group">
+	  <div class="half-page-form">
+	    <label>PLZ</label>
+	    <textarea type="text" class="form-control" id="postalcode" name="postalcode">{{postalcode}}
+	    </textarea>
+	  </div>
+	  <div class="half-page-form">
+	    
+	    <label>Stadt</label>
+	    <textarea type="text" class="form-control" id="city" name="city" placeholder="Stadt">{{city}}
+	    </textarea>
+	  </div>
+	</div>
+	{{/with}}
+      </div>
+    </div>
+  </div>
+  {{/with}}
+  
+  
 </template>
