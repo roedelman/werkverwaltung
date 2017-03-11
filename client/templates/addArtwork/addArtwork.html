@@ -1,113 +1,113 @@
 <template name="addArtwork">
-	<div class="template-addArtwork">
-		<div class="page-header">
-			<h1>Werk hinzufügen</h1>
+    <div class="template-addArtwork">
+	<div class="page-header">
+	    <h1>Werk hinzufügen</h1>
+	</div>
+
+	<form class="addArtwork" enctype="multipart/form-data">
+	    <div class="requiredFields">
+		<div class="form-group">
+		    <label>Titel</label>
+		    <input type="text" class="form-control tag-field" id="title" name="title" placeholder="Title">
+		</div>
+		<div class="form-group">
+		    <label>Bild hinzufügen</label>
+		    <input type="file" name="artworkImage" id="artworkImage">
+		</div>
+		<div class="form-group half-page-form">
+		    <label>Kategorie</label>
+		    <select id="addartworktype" name="addartworktype type" class="form-control tag-field">
+			<option value="default" class="" selected>Kategorie wählen...</option>
+			<optgroup label="Kategorien:">
+			    {{#each artworktypes}}
+			    <option value="{{name}}">{{name}}</option>
+			    {{/each}}
+			</optgroup>
+			<optgroup label="Funktionen:">
+			    <option value="addType" class="add-type">Kategorie hinzufügen</option>
+			    <option value="removeType" class="remove-type">Kategorie entfernen</option>
+			</optgroup>
+		    </select>
 		</div>
 
-		<form class="addArtwork" enctype="multipart/form-data">
-			<div class="requiredFields">
-				<div class="form-group">
-					<label>Titel</label>
-					<input type="text" class="form-control tag-field" id="title" name="title" placeholder="Title">
-				</div>
-				<div class="form-group">
-					<label>Bild hinzufügen</label>
-					<input type="file" name="artworkImage" id="artworkImage">
-				</div>
-				<div class="form-group half-page-form">
-					<label>Kategorie</label>
-					<select id="addartworktype" name="addartworktype type" class="form-control tag-field">
-						<option value="default" class="" selected>Kategorie wählen...</option>
-						<optgroup label="Kategorien:">
-							{{#each artworktypes}}
-							<option value="{{name}}">{{name}}</option>
-							{{/each}}
-						</optgroup>
-						<optgroup label="Funktionen:">
-							<option value="addType" class="add-type">Kategorie hinzufügen</option>
-							<option value="removeType" class="remove-type">Kategorie entfernen</option>
-						</optgroup>
-					</select>
-				</div>
+
+		<div class="form-group half-page-form">
+		    <label>Abmessungen</label>
+		    <select id="addArtworkSize" name="addArtworkSize type" class="form-control">
+			<option value="default" class="" selected>Maße wählen...</option>
+			<optgroup label="Maße:">
+			    {{#each artworksizes}}
+			    <option class= "tag-field" value="{{name}}">{{name}}</option>
+			    {{/each}}
+			</optgroup>
+			<optgroup label="Funktionen:">
+			    <option value="addSize" class="add-type">Maße hinzufügen</option>
+			    <option value="removeSize" class="remove-type">Maße entfernen</option>
+			</optgroup>
+		    </select>
+		</div>
 
 
-				<div class="form-group half-page-form">
-					<label>Abmessungen</label>
-					<select id="addArtworkSize" name="addArtworkSize type" class="form-control">
-						<option value="default" class="" selected>Maße wählen...</option>
-						<optgroup label="Maße:">
-							{{#each artworksizes}}
-							<option class= "tag-field" value="{{name}}">{{name}}</option>
-							{{/each}}
-						</optgroup>
-						<optgroup label="Funktionen:">
-							<option value="addSize" class="add-type">Maße hinzufügen</option>
-							<option value="removeSize" class="remove-type">Maße entfernen</option>
-						</optgroup>
-					</select>
-				</div>
+		<div class="form-group half-page-form">
+		    <label>Material</label>
+		    <select id="artworkMaterial" name="artworkMaterial type" class="form-control tag-field">
+			<option value="default" class="" selected>Material wählen...</option>
+			<optgroup label="Materialien:">
+			    {{#each artworkmaterial}}
+			    <option value="{{name}}">{{name}}</option>
+			    {{/each}}
+			</optgroup>
+			<optgroup label="Funktionen:">
+			    <option value="addMaterial" class="add-type">Material hinzufügen</option>
+			    <option value="removeMaterial" class="remove-type">Material entfernen</option>
+			</optgroup>
+		    </select>
+		</div>
 
-
-				<div class="form-group half-page-form">
-					<label>Material</label>
-					<select id="artworkMaterial" name="artworkMaterial type" class="form-control tag-field">
-						<option value="default" class="" selected>Material wählen...</option>
-						<optgroup label="Materialien:">
-							{{#each artworkmaterial}}
-							<option value="{{name}}">{{name}}</option>
-							{{/each}}
-						</optgroup>
-						<optgroup label="Funktionen:">
-							<option value="addMaterial" class="add-type">Material hinzufügen</option>
-							<option value="removeMaterial" class="remove-type">Material entfernen</option>
-						</optgroup>
-					</select>
-				</div>
-
-				<div class="form-group half-page-form">
-					<label>Ort des Werks</label>
-					<select id="artworkLocation" name="artworkLocation type" class="form-control tag-field">
-						<option value="default" class="" selected>Ort wählen...</option>
-						<optgroup label="Ort des Werks:">
-							{{#each artworklocations}}
-							<option value="{{name}}">{{name}}</option>
-							{{/each}}
-						</optgroup>
-						<optgroup label="Funktionen:">
-							<option value="addLocation" class="add-type">Ort hinzufügen</option>
-							<option value="removeLocation" class="remove-type">Ort entfernen</option>
-						</optgroup>
-					</select>
-				</div>
+		<div class="form-group half-page-form">
+		    <label>Ort des Werks</label>
+		    <select id="artworkLocation" name="artworkLocation type" class="form-control tag-field">
+			<option value="default" class="" selected>Ort wählen...</option>
+			<optgroup label="Ort des Werks:">
+			    {{#each artworklocations}}
+			    <option value="{{name}}">{{name}}</option>
+			    {{/each}}
+			</optgroup>
+			<optgroup label="Funktionen:">
+			    <option value="addLocation" class="add-type">Ort hinzufügen</option>
+			    <option value="removeLocation" class="remove-type">Ort entfernen</option>
+			</optgroup>
+		    </select>
+		</div>
 
 
 
-				<label>Keywords</label>
-				<input type="text" data-role="tagsinput" class="form-control tag-input-field" id="description" name="description" placeholder="Stichwörter">
+		<label>Keywords</label>
+		<input type="text" data-role="tagsinput" class="form-control tag-input-field" id="description" name="description" placeholder="Stichwörter">
 
-			</div>
-			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	    </div>
+	    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-				<!-- Beschreibung -->
-				{{> addArtworkDescription}}
-				<!-- Preisliste -->
-				{{> addArtworkPrice}}
-				<!-- Käufer -->
-				{{> addArtworkBuyer}}
-				
-			</div>
-			<button type="submit" class="btn btn-primary">Hinzufügen</button>
-		</form>
+		<!-- Beschreibung -->
+		{{> addArtworkDescription}}
+		<!-- Preisliste -->
+		{{> addArtworkPrice}}
+		<!-- Käufer -->
+		{{> addArtworkBuyer}}
+		
+	    </div>
+	    <button type="submit" class="btn btn-primary">Hinzufügen</button>
+	</form>
 
-	</div>
-	
-	{{> addArtworkType}}
-	
-	{{> addArtworkSize}}
-	
-	{{> addArtworkMaterial}}
+    </div>
+    
+    {{> addArtworkType}}
+    
+    {{> addArtworkSize}}
+    
+    {{> addArtworkMaterial}}
 
-	{{> addArtworkLocation}}
+    {{> addArtworkLocation}}
 
 </template>
 

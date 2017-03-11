@@ -1,86 +1,89 @@
 <template name="artwork">
-  {{#each artworks}}
-  <div class="container">
-    {{#each images}}
-    <div class="col-xs-6 col-md-3">
-      <a href="#imagelarge" data-toggle="modal" data-target="#imagelarge" class="thumbnail  img-responsive">
-	<img src="{{image}}" class="thumbnail-image  img-responsive uploading='../img/imgres.png'" />
-      </a>
-    </div>
-    {{/each}}
-
-  </div>
-  {{> dropzone}}
-  <!-- 	<div class="artwork-addRemove">
-	<a class="btn btn-primary btn-add-artWorkImage">Bild Entfernen</a>
-	<a href="" data-toggle="modal" data-target="#addArtworkImageModal" id="openArtwork-add-btn" class="btn btn-primary btn-add-artWorkImage">Bild Hinzufügen</a>
-  </div> -->
-  <hr>
-  <div class="col-md-12">
-    <h4>{{title}}</h4>
-    <p>Maße: {{size}}</p>
-    <p>Kategorie: {{type}}</p>
-    {{#each description}}
-    <span class="query-label label label-info">
-      {{this}}
-    </span>
-
-    {{/each}}
-    <p></p>
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-      {{> description}}
-      {{> prices}}
-      {{> kaeufer}}
-
-    </div>
-  </div>
-  
-
-
-  <div class="modal fade " id="imagelarge" tabindex="-1" role="dialog" aria-labelledby="addArtworkImageModalLabel">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-
-	<div class="modal-body">
-	  <img src="" id="imagelarge_src"/>
+    {{#each artworks}}
+    <div class="container">
+	{{#each images}}
+	<div class="col-xs-6 col-md-3">
+	    <a href="#imagelarge" data-toggle="modal" data-target="#imagelarge" class="thumbnail  img-responsive">
+		<img src="{{image}}" class="thumbnail-image  img-responsive uploading='../img/imgres.png'" />
+	    </a>
 	</div>
-      </div>
+	{{/each}}
+
     </div>
-  </div>
 
+    
+    {{> dropzone}}
+    <!-- 	<div class="artwork-addRemove">
+		<a class="btn btn-primary btn-add-artWorkImage">Bild Entfernen</a>
+		<a href="" data-toggle="modal" data-target="#addArtworkImageModal" id="openArtwork-add-btn" class="btn btn-primary btn-add-artWorkImage">Bild Hinzufügen</a>
+    </div> -->
+    <hr>
+    <div class="col-md-12">
+	<h4>{{title}}</h4>
+	<p>Maße: {{size}}</p>
+	<p>Kategorie: {{type}}</p>
+	{{#each description}}
+	<span class="query-label label label-info">
+	    {{this}}
+	</span>
 
-  <div class="modal fade" id="addArtworkImageModal" tabindex="-1" role="dialog" aria-labelledby="addArtworkImageModalLabel">
-    <div class="modal-dialog">
-      <div class="modal-content">
-	<div class="modal-header">
-	  <h4 class="modal-title">Neues Bild hinzufügen</h4>
+	{{/each}}
+	<p></p>
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+	    {{> description}}
+	    {{> prices}}
+	    {{> kaeufer}}
+
 	</div>
-	<div class="modal-body">
-	  <form class="addArtworkImage" enctype="multipart/form-data">
+    </div>
 
-	    <div class="form-group">
-	      <label>Bild hinzufügen</label>
-	      <input type="file" name="artworkImage" id="artworkImage" multiple>
+    {{> addExhibition}}
+
+
+    <div class="modal fade " id="imagelarge" tabindex="-1" role="dialog" aria-labelledby="addArtworkImageModalLabel">
+	<div class="modal-dialog modal-lg">
+	    <div class="modal-content">
+
+		<div class="modal-body">
+		    <img src="" id="imagelarge_src"/>
+		</div>
 	    </div>
-
-	    <button type="submit" class="btn btn-primary">Hinzufügen</button>
-	  </form>
 	</div>
-      </div>
     </div>
-  </div>
-  
-  
 
-  {{/each}}
+
+    <div class="modal fade" id="addArtworkImageModal" tabindex="-1" role="dialog" aria-labelledby="addArtworkImageModalLabel">
+	<div class="modal-dialog">
+	    <div class="modal-content">
+		<div class="modal-header">
+		    <h4 class="modal-title">Neues Bild hinzufügen</h4>
+		</div>
+		<div class="modal-body">
+		    <form class="addArtworkImage" enctype="multipart/form-data">
+
+			<div class="form-group">
+			    <label>Bild hinzufügen</label>
+			    <input type="file" name="artworkImage" id="artworkImage" multiple>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Hinzufügen</button>
+		    </form>
+		</div>
+	    </div>
+	</div>
+    </div>
+    
+    
+
+    {{/each}}
 </template>
 
 <template name="carousel">  
-  <div class="carousel" id="carousel">
-    {{#each images}}
-    <div><img src="{{image}}" width="200px" /></div>
-    {{/each}}
-  </div>
+    <div class="carousel" id="carousel">
+	{{#each images}}
+	<div><img src="{{image}}" width="200px" /></div>
+	{{/each}}
+    </div>
 </template>
 
 

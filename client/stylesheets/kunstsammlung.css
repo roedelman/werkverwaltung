@@ -1,5 +1,12 @@
 /*CSS*/
 
+
+
+.pricematrix{
+
+    width:auto;
+}
+
 textarea {
         text-align: justify;
         white-space: normal;
