@@ -26,7 +26,7 @@ Template.artwork.onRendered(function() {
 
 
 
-Template.prices.helpers({
+Template.addExhibition.helpers({
     artworkexhibitions: function() {
         return ArtworkExhibitions.find();ri
     }
