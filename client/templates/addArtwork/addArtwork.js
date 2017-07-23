@@ -9,6 +9,7 @@ Template.addArtwork.rendered = function() {
 
     document.onkeypress = stopRKey;
 
+
     $('#description').tagsinput('items');
     $('#description').on('itemAdded', function(event) {
         console.log('item added' + event.item);
@@ -18,6 +19,15 @@ Template.addArtwork.rendered = function() {
         console.log(tag);
         // Do some processing here
 
+
+    });
+
+    $(document).ready(function(){
+      var currentyear = new Date();
+
+
+      $("#internal_id").val(formatDate(new Date()));
+      $('#description').tagsinput('add', $("#internal_id").val());
 
     });
 
@@ -51,8 +61,8 @@ Template.addArtwork.events({
         var brutto = Number(netto) * Number(mult);
         $('#bruttopreis_einzeln').val(brutto);
     },
-	
-    
+
+
     "change #mwst": function(event) {
         var steuersatz = $(event.target).val();
         var netto = $('#nettopreis_einzeln').val();
@@ -61,7 +71,7 @@ Template.addArtwork.events({
         $('#bruttopreis_einzeln').val(brutto);
     },
 
-
+// Description ist das Tag Field
     "change .tag-field": function(event) {
         var controlSelectionFields = ['addType', 'addMaterial', 'addLocation', 'addSize', 'removeType', 'removeMaterial', 'removeLocation', 'removeSize'];
 
@@ -188,6 +198,7 @@ Template.addArtwork.events({
 
         //Pflichtfelder
         var title = event.target.title.value;
+        var internal_id = event.target.internal_id.value;
         var tags = event.target.description.value.split(',');
         var type = event.target.addartworktype.value;
         var size = event.target.addArtworkSize.value;
@@ -220,6 +231,7 @@ Template.addArtwork.events({
 
                 Artworks.insert({
                     title: title,
+                    internal_id: internal_id,
                     description: tags,
                     titleImage: artworkImage,
                     size: size,
@@ -269,3 +281,19 @@ Template.addArtwork.events({
 
     }
 });
+
+function formatDate(date) {
+  var monthNames = [
+    "Januar", "Februar", "Maerz",
+    "April", "Mai", "Juni", "Juli",
+    "August", "September", "Oktober",
+    "November", "Dezember"
+  ];
+
+  var day = date.getDate();
+  var monthIndex = date.getMonth();
+  var year = date.getFullYear();
+  var milisec = date.getMilliseconds();
+
+  return year + '_' + monthNames[monthIndex] + '_' + day + '_' + milisec;
+}

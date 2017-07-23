@@ -9,7 +9,7 @@ Template.carousel.rendered = function() {
 }
 
 Template.artwork.rendered = function() {
- 
+
     Session.set('artworkId', this._id);
     $('.thumbnail-image').click(function() {
         var src = $(this).attr('src');
@@ -21,7 +21,7 @@ Template.artwork.rendered = function() {
 
 };
 Template.artwork.onRendered(function() {
-   
+
 });
 
 
@@ -52,8 +52,8 @@ Template.artwork.events({
         }
     },
     "submit .addArtworkImage": function(event) {
-        var file = $('#artworkImage').get(0);
-        FS.Utility.eachFile(event, function(file) {
+        var file = $('#artworkImage').get(0).files[0];
+
             var newFile = new FS.File(file);
             ArtworkImages.insert(newFile, function(err, result) {
                 if (err) {
@@ -76,7 +76,7 @@ Template.artwork.events({
                     //  Modal.show('addInfo');
                 }
             });
-        });
+        
 
         return false;
     },

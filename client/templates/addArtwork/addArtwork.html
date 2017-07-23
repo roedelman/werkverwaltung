@@ -6,10 +6,15 @@
 
 	<form class="addArtwork" enctype="multipart/form-data">
 	    <div class="requiredFields">
-		<div class="form-group">
+        <div class="form-group">
+            <label>Kennzeichen</label>
+            <input type="text" class="form-control tag-field" id="internal_id" name="internal_id" placeholder="">
+        </div>
+    <div class="form-group">
 		    <label>Titel</label>
 		    <input type="text" class="form-control tag-field" id="title" name="title" placeholder="Title">
 		</div>
+
 		<div class="form-group">
 		    <label>Bild hinzufügen</label>
 		    <input type="file" name="artworkImage" id="artworkImage">
@@ -94,20 +99,19 @@
 		{{> addArtworkPrice}}
 		<!-- Käufer -->
 		{{> addArtworkBuyer}}
-		
+
 	    </div>
 	    <button type="submit" class="btn btn-primary">Hinzufügen</button>
 	</form>
 
     </div>
-    
+
     {{> addArtworkType}}
-    
+
     {{> addArtworkSize}}
-    
+
     {{> addArtworkMaterial}}
 
     {{> addArtworkLocation}}
 
 </template>
-

@@ -11,15 +11,15 @@
 
     </div>
 
-    
     {{> dropzone}}
-    <!-- 	<div class="artwork-addRemove">
+    <div class="artwork-addRemove">
 		<a class="btn btn-primary btn-add-artWorkImage">Bild Entfernen</a>
 		<a href="" data-toggle="modal" data-target="#addArtworkImageModal" id="openArtwork-add-btn" class="btn btn-primary btn-add-artWorkImage">Bild Hinzufügen</a>
-    </div> -->
+    </div>
     <hr>
     <div class="col-md-12">
 	<h4>{{title}}</h4>
+  <h5>{{internal_id}}</h5>
 	<p>Maße: {{size}}</p>
 	<p>Kategorie: {{type}}</p>
 	{{#each description}}
@@ -66,25 +66,22 @@
 			    <input type="file" name="artworkImage" id="artworkImage" multiple>
 			</div>
 
-			<button type="submit" class="btn btn-primary">Hinzufügen</button>
+			<button type="submit" class="btn btn-add-artWorkImage addArtworkImage">Hinzufügen</button>
 		    </form>
 		</div>
 	    </div>
 	</div>
     </div>
-    
-    
+
+
 
     {{/each}}
 </template>
 
-<template name="carousel">  
+<template name="carousel">
     <div class="carousel" id="carousel">
 	{{#each images}}
 	<div><img src="{{image}}" width="200px" /></div>
 	{{/each}}
     </div>
 </template>
-
-
-
