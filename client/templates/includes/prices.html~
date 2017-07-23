@@ -1,0 +1,81 @@
+<template name="prices">
+    {{#with price}}
+    <div class="panel panel-default">
+	<div class="panel-heading" role="tab" id="headingTwo">
+	    <h4 class="panel-title">
+		<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
+		    Preise / Austellungen
+		</a>
+	    </h4>
+	</div>
+	<div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+	    <div class="panel-body">
+
+		<div class="container pricematrix  float">
+
+		    <div class="form-group col-md-12">
+			<div class="col-md-4">
+			    <div class="input-group">
+				<span class="input-group-addon">€</span>
+				<input type="text" step="0.01" class="form-control" id="nettopreis_einzeln" name="nettopreis_einzeln" placeholder="{{netto}}">
+			    </div>
+			</div>
+			<div class="col-md-4">
+			    <div class="form-group">
+				<select id="addexhibition" name="addexhibition" class="form-control tag-field">
+				    <option value="default" class="" selected>Austellung wählen...</option>
+				    <optgroup label="Austellungen:">
+
+					<option value="erste">Kölner Liste</option>
+					<option value="erste">Berliner Liste</option>
+					<option value="erste">Art Cologne</option>
+				    </optgroup>
+				    <optgroup label="Funktionen:">
+					<option value="addExhibition" class="add-Exihihibition">Austellung hinzufügen</option>
+					<option value="removeExihihibition" class="remove-Exihihibition">Austellung entfernen</option>
+				    </optgroup>
+				</select>
+			    </div>
+			</div>
+		    </div>
+
+		    
+		    <table class="table">
+			<thead>
+			    <tr>
+				<th>Preis (netto)</th>
+				<th>Preis (brutto)</th>
+				<th>Ausstellung / Gallerie</th>
+				<th>sonstiges</th>
+			    </tr>
+			</thead>
+			<tbody>
+			    <tr class="default">
+				<td>{{netto}} €</td>
+				<td>brutto</td>
+				<td>initaler Preis</td>
+				<td></td>
+			    </tr>
+			    <tr class="default">
+				<td>{{netto}} €</td>
+				<td id="bruttopreis"> </td>
+				<td>Artvergnügen</td>
+				<td></td>
+			    </tr>
+			    <tr class="success">
+				<td>{{netto}} €</td>
+				<td id="bruttopreis"> </td>
+				<td>Kölner Liste</td>
+				<td>2016 März</td>
+				<td></td>
+			    </tr>
+			    
+			</tbody>
+		    </table>
+		</div>
+		
+	    </div>
+	</div>
+    </div>
+    {{/with}}
+</template>

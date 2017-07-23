@@ -1,0 +1,53 @@
+<template name="addArtworkMaterial">
+	<!-- Material hinzufügen-->
+	<div class="modal fade" id="addArtworkMaterialModal" tabindex="-1" role="dialog" aria-labelledby="addArtworkMaterialModalLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Material hinzufügen</h4>
+				</div>
+				<div class="modal-body">
+					<form class="addArtworkMaterial" enctype="multipart/form-data">
+						<div class="form-group">
+							<label>Material</label>
+							<input type="text" class="form-control" id="artworkmaterial" name="artworkmaterial" placeholder="Material">
+						</div>
+
+						<button type="submit" class="btn btn-primary">Hinzufügen</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--ENDE  Material  hinzufügen-->
+	<!--ANFANG  Material entfernen-->
+	<div class="modal fade" id="removeArtworkMaterialModal" tabindex="-1" role="dialog" aria-labelledby="removeArtworkMaterialModalLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Material hinzufügen</h4>
+				</div>
+				<div class="modal-body">
+					<form class="removeArtworkMaterial" enctype="multipart/form-data">
+						<div class="form-group">
+							<label>Material</label>
+							<select id="removeArtworkMaterial" name="removeArtworkMaterial removesize" class="form-control">
+								<option value="default" class="" selected>Material entfernen...</option>
+								<optgroup label="Materialn:">
+									{{#each artworkmaterials}}
+									<option value="{{name}}">{{name}}</option>
+									{{/each}}
+								</optgroup>
+							</select>
+						</div>
+
+						<button type="submit" class="btn btn-primary">Entfernen</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--ENDE  Maße entfernen-->
+
+</template>

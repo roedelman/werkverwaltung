@@ -1,0 +1,54 @@
+
+<template name="addArtworkLocation">
+	<!-- Location hinzufügen-->
+	<div class="modal fade" id="addArtworkLocationModal" tabindex="-1" role="dialog" aria-labelledby="addArtworkLocationModalLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Ort hinzufügen</h4>
+				</div>
+				<div class="modal-body">
+					<form class="addArtworkLocation" enctype="multipart/form-data">
+						<div class="form-group">
+							<label>Ort</label>
+							<input type="text" class="form-control" id="artworklocation" name="artworklocation" placeholder="Location">
+						</div>
+
+						<button type="submit" class="btn btn-primary">Hinzufügen</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--ENDE  Location  hinzufügen-->
+	<!--ANFANG  Location entfernen-->
+	<div class="modal fade" id="removeArtworkLocationModal" tabindex="-1" role="dialog" aria-labelledby="removeArtworkLocationModalLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Ort hinzufügen</h4>
+				</div>
+				<div class="modal-body">
+					<form class="removeArtworkLocation" enctype="multipart/form-data">
+						<div class="form-group">
+							<label>Ort</label>
+							<select id="removeArtworkLocation" name="removeArtworkLocation removesize" class="form-control">
+								<option value="default" class="" selected>Ort entfernen...</option>
+								<optgroup label="Locationn:">
+									{{#each artworklocations}}
+									<option value="{{name}}">{{location}}</option>
+									{{/each}}
+								</optgroup>
+							</select>
+						</div>
+
+						<button type="submit" class="btn btn-primary">Entfernen</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--ENDE  Maße entfernen-->
+
+</template>

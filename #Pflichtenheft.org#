@@ -1,0 +1,28 @@
+* Funktionen
+** TODO Austellungen in die Datenbank schreiben
+** TODO Austellungen Erstellung
+
+
+
+* Backend
+** TODO Backend einrichten
+
+* Frontend
+** Austellungen Modal anpassen
+
+
+* Konzepte
+** Austellungen 
+- Jede Ausstellung bekommt einen Preis und ein Datum
+- Ausstellug {name, datum, Preis}
+- Ausstellungen werden getrennt gespeichert.
+- Preise und Ausstellungen gibt es nur pro Werk
+- Austellungen kommen mit in die Description um danach filtern zu können
+- Ausstellungen können auch gelöscht werden
+- Ausstellungen erstellen immer eine neue Zeile
+- DAtetimepicker fixen, kann ja nicht so schwer sein. Monat und Jahr reicht aus.
+** Preise
+- Preisberechnung für diverse Anbieter implementieren
+- 
+
+

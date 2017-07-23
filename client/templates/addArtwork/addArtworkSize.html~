@@ -1,0 +1,52 @@
+<template name="addArtworkSize">
+		<div class="modal fade" id="addArtworkSizeModal" tabindex="-1" role="dialog" aria-labelledby="addArtworkSizeModalLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Maße hinzufügen</h4>
+				</div>
+				<div class="modal-body">
+					<form class="addArtworkSize" enctype="multipart/form-data">
+						<div class="form-group">
+							<label>Maße in cm</label>
+							<input type="text" class="form-control" id="artworksize" name="artworksize" placeholder="Kategorie">
+						</div>
+
+						<button type="submit" class="btn btn-primary">Hinzufügen</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="removeArtworkSizeModal" tabindex="-1" role="dialog" aria-labelledby="removeArtworkSizeModalLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Maße hinzufügen</h4>
+				</div>
+				<div class="modal-body">
+					<form class="removeArtworkSize" enctype="multipart/form-data">
+						<div class="form-group">
+							<label>Size</label>
+							<select id="removeArtworkSize" name="removeArtworkSize removesize" class="form-control">
+								<option value="default" class="" selected>Maße entfernen...</option>
+								<optgroup label="Maßen:">
+									{{#each artworksizes}}
+									<option value="{{name}}">{{name}}</option>
+									{{/each}}
+								</optgroup>
+								<optgroup label="Funktionen:">
+
+
+								</optgroup>
+							</select>
+						</div>
+
+						<button type="submit" class="btn btn-primary">Entfernen</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	</template>	

@@ -1,0 +1,41 @@
+<template name="addArtworkPrice">
+    <div class="panel panel-default">
+	<div class="panel-heading" role="tab" id="headingTwo">
+	    <h4 class="panel-title">
+		<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
+		    Preise
+		</a>
+	    </h4>
+	</div>
+	<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+	    <div class="panel-body">
+		<div class="form-group col-md-12">
+		    <div class="col-md-4">
+			<div class="input-group">
+			    <span class="input-group-addon">€</span>
+			    <input type="text" step="0.01" class="form-control" id="nettopreis_einzeln" name="nettopreis_einzeln" placeholder="Nettopreis">
+			</div>
+		    </div>
+		    <div class="col-md-4">
+			
+
+			<select id="mwst" name="mwst type" class="form-control">
+			    <option value=".07">7%</option>
+			    <option value=".19">19%</option>
+			    <option value="0">0%</option>
+
+			</select>
+		    </div>
+		    <div class="col-md-4">
+			<div class="input-group">
+			    <span class="input-group-addon">€</span>
+			    <input type="text" class="form-control" id="bruttopreis_einzeln" name="bruttopreis_einzeln" placeholder="Bruttopreis">
+			</div>
+			
+		    </div>
+		</div>
+		
+	    </div>
+	</div>
+    </div>
+</template>

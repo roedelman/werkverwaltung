@@ -1,0 +1,7 @@
+Template.addExhibtion.events({
+
+    "submit .addExhibition": function(event){
+	var exhibition = event.target.exhibitionname.value;
+	//var exhibitionPrice = event.target.
+    }
+});

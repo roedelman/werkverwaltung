@@ -1,0 +1,54 @@
+<template name="addArtworkType">
+		<div class="modal fade" id="addArtworkTypeModal" tabindex="-1" role="dialog" aria-labelledby="addArtworkTypeModalLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Kategorie hinzufügen</h4>
+				</div>
+				<div class="modal-body">
+					<form class="addArtworkType" enctype="multipart/form-data">
+						<div class="form-group">
+							<label>Name der Kategorie</label>
+							<input type="text" class="form-control" id="artworktype" name="artworktype" placeholder="Kategorie">
+						</div>
+
+						<button type="submit" class="btn btn-primary">Hinzufügen</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+		<div class="modal fade" id="removeArtworkTypeModal" tabindex="-1" role="dialog" aria-labelledby="removeArtworkTypeModalLabel">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Kategorie hinzufügen</h4>
+				</div>
+				<div class="modal-body">
+					<form class="removeArtworkType" enctype="multipart/form-data">
+						<div class="form-group">
+							<label>Type</label>
+							<select id="removeartworktype" name="removeartworktype removetype" class="form-control">
+								<option value="default" class="" selected>Kategorie entfernen...</option>
+								<optgroup label="Kategorien:">
+									{{#each artworktypes}}
+									<option value="{{name}}">{{name}}</option>
+									{{/each}}
+								</optgroup>
+								<optgroup label="Funktionen:">
+
+
+								</optgroup>
+							</select>
+						</div>
+
+						<button type="submit" class="btn btn-primary">Entfernen</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</template>

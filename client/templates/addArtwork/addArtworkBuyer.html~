@@ -1,0 +1,49 @@
+<template name="addArtworkBuyer">
+	<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingThree">
+						<h4 class="panel-title">
+							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+								Käufer
+							</a>
+						</h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+						<div class="panel-body">
+							<div class="form-group">
+								<div class="half-page-form">
+									<label>Vorname</label>
+									<input type="text" class="form-control tag-field" id="buyer_firstname" name="buyer_firstname" placeholder="Vorname">
+								</div>
+								<div class="half-page-form">
+
+									<label>Name</label>
+									<input type="text" class="form-control tag-field" id="buyer_secondname" name="buyer_secondname" placeholder="Nachname">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="half-page-form">
+									<label>Straße</label>
+									<input type="text" class="form-control" id="street" name="street" placeholder="Straße">
+								</div>
+								<div class="half-page-form">
+
+									<label>Hausnummer</label>
+									<input type="text" class="form-control" id="street_number" name="street_number" placeholder="Hausnummer">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="half-page-form">
+									<label>PLZ</label>
+									<input type="text" class="form-control" id="postalcode" name="postalcode" placeholder="Postleitzahl">
+								</div>
+								<div class="half-page-form">
+
+									<label>Stadt</label>
+									<input type="text" class="form-control tag-field" id="city" name="city" placeholder="Stadt">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+</template>

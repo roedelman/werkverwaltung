@@ -1,0 +1,73 @@
+<template name="prices">
+
+    <div class="panel panel-default">
+	<div class="panel-heading" role="tab" id="headingTwo">
+	    <h4 class="panel-title">
+		<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
+		    Preise / Austellungen
+		</a>
+	    </h4>
+	</div>
+	<div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+	    <div class="panel-body">
+
+		<div class="container pricematrix  float">
+
+		    <div class="form-group col-md-12">
+			<a href="" data-toggle="modal" data-target="#addExhibitionModal" id="openExhibition-add-btn" class="btn btn-primary btn-add-artWorkImage">Ausstellung hinzufügen</a>	
+			<div class="col-md-4">
+			    <div class="input-group">
+				<span class="input-group-addon">€</span>
+				<input type="text" step="0.01" class="form-control" id="nettopreis_einzeln" name="nettopreis_einzeln" placeholder="{{netto}}">
+			    </div>
+			</div>
+			<div class="col-md-4">
+			    <div class="form-group">
+				<select id="addexhibition" name="addexhibition" class="form-control tag-field">
+				    <option value="default" class="" selected>Austellung wählen...</option>
+				    <optgroup label="Austellungen:">
+					{{#each artworkexhibitions}}
+					<option value="{{name}}">{{name}}</option>
+					{{/each}}
+				    </optgroup>
+				    <optgroup label="Funktionen:">
+					<option value="createExhibition" class="create-Exhibition">Austellung erstellen</option>
+					<option value="addExhibition" class="add-Exhibition">Austellung hinzufügen</option>
+					<option value="removeExhibition" class="remove-Exhibition">Austellung entfernen</option>
+				    </optgroup>
+				</select>
+			    </div>
+			</div>
+		    </div>
+
+		    
+		    <table class="table">
+			<thead>
+			    <tr>
+				<th>Preis (netto)</th>
+				<th>Preis (brutto)</th>
+				<th>Ausstellung / Gallerie</th>
+				<th>sonstiges</th>
+			    </tr>
+			</thead>
+			<tbody>
+
+			    {{#each Exhibitions}}
+			    <tr class="default">
+				<td>{{exhibition.price}}</td>
+				<td>not implemented yet </td>
+				<td>{{exhibition.name}}</td>
+				<td>{{exhibition.date}}</td>
+				
+			    </tr>
+			    {{/each}}
+
+			</tbody>
+		    </table>
+		</div>
+		
+	    </div>
+	</div>
+    </div>
+
+</template>

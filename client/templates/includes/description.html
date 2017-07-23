@@ -1,0 +1,16 @@
+<template name="description">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+	<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+	  Beschreibung
+	</a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+	<textarea type="text" class="form-control" id="description_long" name="description_long" placeholder="Beschreibung" rows="10">{{description_long}}</textarea>
+      </div>
+    </div>
+  </div>
+</template>
